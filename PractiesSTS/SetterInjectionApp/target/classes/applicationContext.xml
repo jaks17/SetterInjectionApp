@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Bean for Address -->
+    <bean id="addressBean" class="com.example.Address">
+        <!-- Default values can be set here or modified programmatically -->
+        <property name="city" value="DefaultCity"/>
+        <property name="state" value="DefaultState"/>
+        <property name="pincode" value="000000"/>
+    </bean>
+
+    <!-- Bean for Organization -->
+    <bean id="organizationBean" class="com.example.Organization">
+        <property name="name" value="DefaultOrgName"/>
+        <property name="address" ref="addressBean"/>
+    </bean>
+
+    <!-- Bean for Employee -->
+    <bean id="employeeBean" class="com.example.Employee">
+        <property name="name" value="DefaultEmployeeName"/>
+        <property name="id" value="0"/>
+        <property name="salary" value="0"/>
+        <property name="address" ref="addressBean"/>
+        <property name="organization" ref="organizationBean"/>
+    </bean>
+
+</beans>
